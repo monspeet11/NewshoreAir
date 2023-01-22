@@ -1,0 +1,36 @@
+<div class="wrapperSearch">
+    <form #f="ngForm" [formGroup]="this.form">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Origen:</mat-label>
+                    <input matInput #origen maxlength="3" placeholder="Ingresa un origen" formControlName="origen"
+                        onkeyup="javascript:this.value=this.value.toUpperCase();">
+                    <mat-hint align="end">{{origen.value.length}} / 3</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Destino:</mat-label>
+                    <input matInput #destino maxlength="3" placeholder="Ingresa un destino." formControlName="destino"
+                        onkeyup="javascript:this.value=this.value.toUpperCase();">
+                    <mat-hint align="end">{{destino.value.length}} / 3</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Moneda: </mat-label>
+                    <mat-select name="food" formControlName="moneda" #moneda>
+                        <mat-option *ngFor="let curren of currens" [value]="curren.value">
+                            {{curren.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <button mat-raised-button color="primary" style="width: 100%; height: 51px;"
+                    (click)="SearchFlight();" id="buscar-button">Buscar</button>
+            </div>
+        </div>
+    </form>
+</div>

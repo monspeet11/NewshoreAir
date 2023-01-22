@@ -1,0 +1,13 @@
+<div class="container">
+    <app-header></app-header>
+    <app-search (flights)="GetSearchFlight($event)"></app-search>
+    <div *ngIf="this.flights != null">
+        <div class="row" *ngFor="let flight of flights; let i = index">
+            <app-journeys [vuelo]="flights[i].transport.flightCarrier + ' - ' + flights[i].transport.flightNumber"
+                [origen]="flight.origin" [destino]="flight.destination"
+                [precio]="flight.price"></app-journeys>
+        </div>
+        <label *ngIf="this.prices > 0">Total: {{this.prices | currency: this.cop}}</label>
+    </div>
+    <div *ngIf="this.flights == null || this.flights.length <= 0" #novuelos class="novuelos">No hay Vuelos Disponibles</div>
+</div>

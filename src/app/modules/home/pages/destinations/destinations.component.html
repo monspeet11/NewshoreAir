@@ -1,0 +1,9 @@
+<div class="container" style="margin-top:85px;">
+    <div class="row">
+        <app-travel-destination-letter *ngFor="let destination of destinations; let i = index" class="col-md-3"
+            [title]="destination.departureStation + ' - ' + destination.arrivalStation"
+            [subtitle]="destination.flightCarrier + ' - ' + destination.flightNumber"
+            [price]="destination.price" [picture]="i">
+        </app-travel-destination-letter>
+    </div>
+</div>
